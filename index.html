@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-theme="light">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -1729,7 +1729,7 @@ function v7Pivots(mount, rocker, dropMm, eye, d1829){
 }
 // ===== UI =====
 const $ = (id)=>document.getElementById(id);
-let LANG = 'fr';
+let LANG = 'en';
 const t = (fr,en,de)=> LANG==='en' ? en : LANG==='de' ? (de ?? en) : fr;
 const fmt = (v,d=0)=> (v==null||isNaN(v)) ? '–' : (LANG==='en' ? v.toFixed(d) : v.toFixed(d).replace('.', ','));
 const fs = (s)=> Number.isInteger(s) ? String(s) : fmt(s,1);
@@ -2517,7 +2517,7 @@ function applyStatic(){
 function initLang(){
   const h = location.hash.slice(1); let saved=null; try { saved = localStorage.getItem('kgl-lang'); } catch(e){}
   const nl = (navigator.language||'fr').toLowerCase();
-  LANG = ['en','fr','de'].includes(h) ? h : ['en','fr','de'].includes(saved) ? saved : nl.startsWith('fr') ? 'fr' : nl.startsWith('de') ? 'de' : 'en';
+  LANG = ['en','fr','de'].includes(h) ? h : ['en','fr','de'].includes(saved) ? saved : 'en';   // English by default; the visitor's choice is remembered
   applyStatic();
 }
 function setLang(l, push){
